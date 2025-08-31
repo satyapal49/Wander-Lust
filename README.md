@@ -21,6 +21,3 @@ This project is a web application designed to showcase and list various resorts.
 2. Install dependencies.
 3. Run the development server.
 
-## License
-
-[Specify license here]
