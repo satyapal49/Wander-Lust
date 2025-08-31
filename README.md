@@ -11,9 +11,9 @@ This project is a web application designed to showcase and list various resorts.
 
 ## Technologies Used
 
-- HTML, CSS, JavaScript
-- [Add framework/library if applicable, e.g., React, Node.js]
-- [Add database if applicable, e.g., MongoDB, MySQL]
+- HTML, CSS, Bootstrap, JavaScript (Frontend)
+- Node.js, Express.js (Backend)
+- MongoDB (Database)
 
 ## Getting Started
 
