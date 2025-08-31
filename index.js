@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const ExpressError = require("./utils/ExpressError.js")
 const wrapAsync = require("./utils/wrapAsync.js")
+const listingSchema = require("./Schema.js")
 
 
 
@@ -44,9 +45,8 @@ app.post("/listings", wrapAsync(async (req, res) => {
     // const newListing = new Listing(req.body);
     // let {title, description, image, price, location, country} = req.body;
     // const newListing = new Listing({title, description, image, price, location, country});
-    if(!req.body.listing){
-        throw new ExpressError(400, "Send Valid for Listing")
-    }
+    let result = listingSchema.validate(req.body);
+    console.log(result);
     const newListing = new Listing(req.body.listing);
     await newListing.save();
     res.redirect("/listings");
