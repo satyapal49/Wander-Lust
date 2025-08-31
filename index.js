@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 
 
 // Index Route - List all listings
-app.get("/listings", wrapAsync(async(req, res)=> {
+app.get("/listings", wrapAsync(async(req, res, next)=> {
    const allListings = await Listing.find({});
    res.render("listings/index.ejs", {allListings})
 }));
@@ -41,12 +41,12 @@ app.get("/listings/new", (req, res) => {
     res.render("listings/new.ejs"); 
 });
 
-app.post("/listings", wrapAsync(async (req, res) => {
-    // const newListing = new Listing(req.body);
-    // let {title, description, image, price, location, country} = req.body;
-    // const newListing = new Listing({title, description, image, price, location, country});
+app.post("/listings", wrapAsync(async (req, res, next) => {
     let result = listingSchema.validate(req.body);
     console.log(result);
+    if(result.error){
+        throw new ExpressError(400, result.error);
+    }
     const newListing = new Listing(req.body.listing);
     await newListing.save();
     res.redirect("/listings");
