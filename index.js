@@ -30,10 +30,10 @@ app.get('/', (req, res) => {
 
 
 // Index Route - List all listings
-app.get("/listings", async(req, res)=> {
+app.get("/listings", wrapAsync(async(req, res)=> {
    const allListings = await Listing.find({});
    res.render("listings/index.ejs", {allListings})
-});
+}));
 
 // new route and create route
 app.get("/listings/new", (req, res) => {
@@ -86,13 +86,14 @@ app.delete("/listings/:id", wrapAsync(async(req, res) => {
 // error handing middleware
 
 app.use((req, res, next) => {
-    next(new ExpressError(404, "Something went wrong"));
+    next(new ExpressError(404, "Page Not Found"));
 });
 
 
 app.use((err, req, res, next)=>{
-    let {status = 501, message = "Something went wrong2"} = err;
-    res.status(status).send(message);
+    let {status = 501, message = "Something went wrong"} = err;
+    res.status(status).render("error.ejs", {err})
+    // res.status(status).send(message);
 });
 
 app.listen(8080, () => {
