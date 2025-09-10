@@ -4,7 +4,7 @@
         <h3 class="card-title">
             <%= listing.title %>
         </h3>
-        <div class="card col-8">
+        <div class="card col-8 show-card listing-card">
             <img src="<%= listing.image %>" class="card-img show-img" alt="listing_image">
             <div class="card-body">
                 <p>Description: <%= listing.description %>
@@ -30,16 +30,21 @@
         </div>
 
         <div class="col-8 offset-0 mb-5">
-            <hr/>
+            <hr />
             <h4>Leave a Review</h4>
             <form action="/listings/<%= listing._id %>/reviews" method="post" novalidate class="needs-validation">
+                <div class="mt-3">
+                    <label for="name" class="form-label">Name :</label>
+                    <input type="text" id="name" name="review[name]" class="form-control">
+                </div>
                 <div class="mt-3">
                     <label for="rating" class="form-label">Rating :</label>
                     <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range">
                 </div>
                 <div class="mt-3">
                     <label for="comment" class="form-label">Comments :</label>
-                    <textarea name="review[comment]" id="comment" cols="20" rows="5" class="form-control" required></textarea>
+                    <textarea name="review[comment]" id="comment" cols="20" rows="5" class="form-control"
+                        required></textarea>
                     <div class="invalid-feedback">
                         Please add some comments for review
                     </div>
@@ -47,14 +52,26 @@
                 <button class="btn btn-dark btn-1del mt-3 col-4 offset-4">Submit</button>
             </form>
 
-        </hr>
+            <hr />
 
-            <h4>All reviews</h4>
-            <ul>
-            <% for (review of listing.reviews) {%>
-                <li> <%= review.comment %> , Stars : <%= review.rating %> </li>
-            <% } %>
-            </ul>
+            <p><b>All reviews</b></p>
+            <div class="row">
+                <% for (review of listing.reviews) {%>
+                    <div class="card col-6 ms-2 mb-3" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"> Name: <%= review.name %>
+                            </h5>
+                            <p class="card-text"> Comment : <%= review.comment %>
+                            </p>
+                            <p class="card-text">Rating : <%= review.rating %>
+                            </p>
+                        </div>
+                        <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="post" class="mb-3">
+                            <button class="btn btn-sm btn-dark">Delete</button>
+                        </form>
+                    </div>
+                    <% } %>
+            </div>
         </div>
 
     </div>
