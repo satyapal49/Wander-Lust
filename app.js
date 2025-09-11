@@ -5,6 +5,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const ExpressError = require("./utils/ExpressError.js");
+const cookieParser = require('cookie-parser');
 
 const listings = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
@@ -15,7 +16,7 @@ async function main() {
     console.log('Connected to MongoDB');
 }
 
-
+app.use(cookieParser());
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, 'views'));
@@ -24,8 +25,15 @@ app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    let {name = "Anonymous"} = req.cookies;
+    res.send(`Hi ${name}`);
 });
+
+app.get("/getcookies", (req, res)=>{
+    res.cookie("greet", "Hello");
+    res.cookie("origin", "India");
+    res.send("we sent you cookies")
+})
 
 
 
