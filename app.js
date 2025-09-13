@@ -24,18 +24,6 @@ app.use(express.urlencoded({ extended: true }));
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, '/public')));
 
-app.get('/', (req, res) => {
-    let {name = "Anonymous"} = req.cookies;
-    res.send(`Hi ${name}`);
-});
-
-app.get("/getcookies", (req, res)=>{
-    res.cookie("greet", "Hello");
-    res.cookie("origin", "India");
-    res.send("we sent you cookies")
-})
-
-
 
 app.use("/listings", listings)
 app.use("/listings/:id/reviews", reviews)
