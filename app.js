@@ -46,6 +46,7 @@ app.use((req,res,next)=>{
     res.locals.fail = req.flash("fail");
     res.locals.error = req.flash("error");
     res.locals.update = req.flash("update");
+    res.locals.Delete = req.flash("Delete");
     next();
 });
 

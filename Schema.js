@@ -10,7 +10,7 @@ module.exports.listingSchema = Joi.object({
         price : Joi.number().required(),
 
     }).required()
-})
+});
 
 
 module.exports.reviewSchema = Joi.object({
@@ -20,4 +20,4 @@ module.exports.reviewSchema = Joi.object({
         name : Joi.string().required(),
 
     }).required(),
-})
+});
