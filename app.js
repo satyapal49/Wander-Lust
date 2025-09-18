@@ -58,6 +58,7 @@ app.use((req,res,next)=>{
     res.locals.error = req.flash("error");
     res.locals.update = req.flash("update");
     res.locals.Delete = req.flash("Delete");
+    res.locals.currUser = req.user;
     next();
 });
 
