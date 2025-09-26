@@ -3,6 +3,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
 .container {
     flex: 1;
 }
@@ -15,28 +16,34 @@ body {
 }
 
 .fa-compass {
-    color: #ff5733; /* Example color */
-    font-size: 2rem; /* Example size */
+    color: #ff5733;
+    /* Example color */
+    font-size: 2rem;
+    /* Example size */
 }
 
 .nav-link {
     color: #222222 !important;
 }
+
 .navbar-collapse {
     background-color: white;
 }
 
 /* Footer styles */
 
-.f-info-links a{
+.f-info-links a {
     text-decoration: none;
     color: #222222;
 }
-.f-info-links a:hover{
+
+.f-info-links a:hover {
     text-decoration: underline;
 }
 
-.f-info-links, .f-info-socials, .f-info-brand {
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
     width: 100%;
     display: flex;
     align-items: center;
@@ -74,6 +81,7 @@ body {
 .card-body {
     padding: 0rem !important;
 }
+
 .card-text p {
     font-weight: 1000 !important;
     text-decoration: none !important;
@@ -86,20 +94,85 @@ body {
 .card-img-overlay {
     opacity: 0;
 }
+
 .card-img-overlay:hover {
     opacity: 0.2;
     background-color: white;
 }
 
-.btn {
+/* .btn {
     background-color: #ff5733 !important;
     border: none !important;
-}
+} */
 
 /* Show page */
 .show-img {
     height: 40vh;
 }
+
 .btn-1del {
     background-color: #222222 !important;
 }
+
+
+/* Map styling */
+#map {
+    height: 400px;
+    width: 60vh;
+}
+
+/* Navbar */
+ #filters {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
+        .filter {
+            text-align: center;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+        .filter:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+        .filter p {
+            font-size: 0.8rem;
+        }
+
+.tax-toggle {
+    border: 1px solid black;
+    border-radius: 1rem;
+    height: 3.25rem;
+    padding: 1rem;
+    margin-left: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+
+.tax-info {
+   display: none; 
+}
+
+.btn-search {
+    background-color: #ff5733;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+  .btn-search:hover {
+    background-color: #ff5733;
+    color: #fff;
+  }
+  .btn-search i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+  .search-input {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    font-size: 0.9rem;
+  }

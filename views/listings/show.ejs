@@ -1,4 +1,9 @@
 <% layout('layouts/boilerplate') -%>
+    <script>
+        const mapToken = "<%= process.env.MAP_TOKEN %>";
+        const listing = <%- JSON.stringify(listing) %>;
+    
+    </script>
 
     <div class="row offset-3 mt-3">
         <h3 class="card-title">
@@ -34,7 +39,8 @@
 
                     <% if(currUser) { %>
                         <h4>Leave a Review</h4>
-                        <form action="/listings/<%= listing._id %>/reviews" method="post" novalidate class="needs-validation">
+                        <form action="/listings/<%= listing._id %>/reviews" method="post" novalidate
+                            class="needs-validation">
                             <div class="mt-3">
                                 <label for="rating" class="form-label">Rating :</label>
                                 <fieldset class="starability-growRotate">
@@ -66,7 +72,7 @@
                             <p><b>All reviews</b></p>
                             <div class="row">
                                 <% for (review of listing.reviews) {%>
-                                    <div class="card col-6 ms-2 mb-3" style="width: 18rem;">
+                                    <div class="card col-12 ms-2 " style="width: 18rem;">
                                         <div class="card-body">
                                             <h5 class="card-title"> Name: <%= review.author.username %>
                                             </h5>
@@ -83,6 +89,13 @@
                                     </div>
                                     <% } %>
                             </div>
-                </div>
 
+                </div>
+                <div class="col-8 mb-3">
+                    <h3>Where You'll be</h3>
+                    <div id="map">
+                    </div>
+                </div>
     </div>
+
+    <script src="/js/map.js"></script>
