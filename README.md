@@ -19,7 +19,7 @@ Welcome to the Resort Listing Website project! This application provides a platf
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/resort-listing-website.git
+    git clone https://github.com/satyapal49/Wander-Lust.git
     ```
 2. Install dependencies:
     ```bash
@@ -41,3 +41,4 @@ None
 ## Contact
 
 For questions or feedback, please contact [satyapalraj49@gmail.com].#
+
