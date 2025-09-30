@@ -123,11 +123,19 @@ body {
 
 /* Navbar */
   
+#filters {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+}
+
 .filter-collection-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 75%;
 }
 
 .filter-collection {
@@ -137,7 +145,7 @@ body {
   -ms-overflow-style: none;
   white-space: nowrap;
   scroll-behavior: smooth;
-  width: 100%;
+  width: 90%;
   margin: 0 32px;
   padding: 10px 0;
 }
