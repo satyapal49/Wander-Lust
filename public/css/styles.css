@@ -122,25 +122,70 @@ body {
 }
 
 /* Navbar */
- #filters {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 2rem;
-            justify-content: center;
-            align-items: center;
-        }
-        .filter {
-            text-align: center;
-            margin-top: 2rem;
-            opacity: 0.7;
-        }
-        .filter:hover {
-            opacity: 1;
-            cursor: pointer;
-        }
-        .filter p {
-            font-size: 0.8rem;
-        }
+  
+.filter-collection-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.filter-collection {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  width: 90%;
+  margin: 0 32px;
+  padding: 10px 0;
+}
+
+.filter-collection::-webkit-scrollbar {
+  display: none;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;
+  margin: 0 18px;
+  min-width: 70px;
+  opacity: 0.7;
+}
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 5px 10px;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 50%;
+  color: #000000;
+}
+
+.arrow.left {
+  left: 0;
+}
+
+.arrow.right {
+  right: 0;
+}
+
+
+
+
 
 .tax-toggle {
     border: 1px solid black;
@@ -150,6 +195,7 @@ body {
     margin-left: 5rem;
     display: flex;
     align-items: center;
+    width: fit-content;
 }
 
 

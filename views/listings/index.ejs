@@ -3,50 +3,57 @@
 
     <!-- <h3>All Listing</h3> -->
     <div id="filters">
-        <div class="filter">
-            <div><i class="fa-solid fa-fire"></i></div>
-            <p>Trending</p>
+        <div class="filter-collection-wrapper">
+            <button class="arrow left">&#8592;</button>
+            <div class="filter-collection">
+                <div class="filter">
+                    <div><i class="fa-solid fa-fire"></i></div>
+                    <p>Trending</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-bed"></i></div>
+                    <p>Rooms</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-mountain-city"></i></div>
+                    <p>Iconic Cities</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-mountain"></i></div>
+                    <p>Mountains</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-brands fa-fort-awesome"></i></div>
+                    <p>Castles</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-person-swimming"></i></div>
+                    <p>Amazing Pools</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-tents"></i></div>
+                    <p>Camping</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-tractor"></i></div>
+                    <p>Farms</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-snowflake"></i></div>
+                    <p>Arctic</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-landmark-dome"></i></div>
+                    <p>Dome</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-sailboat"></i></div>
+                    <p>House Boat</p>
+                </div>
+            </div>
+            <button class="arrow right">&#8594;</button>
         </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-bed"></i></div>
-            <p>Rooms</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-mountain-city"></i></div>
-            <p>Iconic Cities</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-mountain"></i></div>
-            <p>Mountains</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-brands fa-fort-awesome"></i></div>
-            <p>Castles</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-person-swimming"></i></div>
-            <p>Amazing Pools</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-tents"></i></div>
-            <p>Camping</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-tractor"></i></div>
-            <p>Farms</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-snowflake"></i></div>
-            <p>Arctic </p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-landmark-dome"></i></i></div>
-            <p>Dome</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-sailboat"></i></div>
-            <p>House Boat </p>
-        </div>
+
 
         <div class="tax-toggle">
             <div class="form-check-reverse form-switch">
@@ -87,4 +94,14 @@
                 }
             }
         })
+
+
+        const leftArrow = document.querySelector('.arrow.left');
+        const rightArrow = document.querySelector('.arrow.right');
+        const filterCollection = document.querySelector('.filter-collection');
+
+        leftArrow.onclick = () => filterCollection.scrollBy({ left: -200, behavior: 'smooth' });
+        rightArrow.onclick = () => filterCollection.scrollBy({ left: 200, behavior: 'smooth' });
+
+
     </script>
